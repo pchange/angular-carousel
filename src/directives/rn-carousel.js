@@ -287,6 +287,9 @@
 
                             locked = true;
                             var tweenable = new Tweenable();
+                            if(getSlidesDOM().length < 2) {
+                                return;
+                            }
                             tweenable.tween({
                                 from: {
                                     'x': offset
@@ -308,11 +311,7 @@
                                             index = 0;
                                         }
                                         scope.carouselIndex = index;
-                                        if(slidesDOM.length < 2) {
-                                            offset = 0;
-                                        } else {
-                                            offset = index * -100;
-                                        }
+                                        offset = index * -100;
                                         updateBufferIndex();
                                         $timeout(function () {
                                           locked = false;
